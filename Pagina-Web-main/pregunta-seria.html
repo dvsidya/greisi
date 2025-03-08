@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pregunta importante :)</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+        <div class="titulo-container">
+            <img src="img/icono-izquierdo.png" alt="Icono izquierdo" class="icono-titulo">
+            <h1>El rincón de William Y Flor</h1>
+            <img src="img/icono-derecho.png" alt="Icono derecho" class="icono-titulo">
+        </div>
+        <h2 class="eslogan">Donde florece el amor</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nuestra-historia.html">Nuestra Historia</a></li>
+                <li><a href="pregunta-seria.html">Pregunta seria...</a></li>
+                <li><a href="museo.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="box">
+      <h1 id="title">¿Me amas mi amor?</h1>
+      <div class="btn-container" id="containerBtns">
+        <button class="btn-si" id="btnSi">Si</button>
+        <button class="btn-no" id="btnNo">No</button>
+      </div>
+      <img src="" alt="gato" id="img" loading="lazy" />
+    </div>
+
+    <script>
+      const mensajeFinal = "Sabía que me amabas :3 ❤️";
+
+      const imagenPrincipio =
+        "https://raw.githubusercontent.com/Ragosorio/cj-nv3.0/main/cj.webp";
+      const imageneFinal =
+        "https://raw.githubusercontent.com/Ragosorio/cj-nv3.0/main/cjfin.webp";
+      const imagenTroste = "https://raw.githubusercontent.com/Ragosorio/cj-nv3.0/main/troste.webp";
+      const imagenBromita = "https://raw.githubusercontent.com/Ragosorio/cj-nv3.0/main/bromita.webp";
+      //Si quieres entender lo de aqui abajo ⬇️ escribe por dm @ragosorio
+
+      const $ = (e) => document.getElementById(e);
+
+      const btnSi = $("btnSi");
+      const btnNo = $("btnNo");
+      const title = $("title");
+      const img = $("img");
+      const btnContainer = $("containerBtns");
+      let contador = 0;
+
+      img.src = imagenPrincipio;
+
+      btnSi.addEventListener("click", () => {
+        title.textContent = mensajeFinal;
+        img.src = imageneFinal;
+        btnContainer.classList.add("hidden");
+      });
+
+      const getRandomOffset = (max) => Math.floor(Math.random() * max);
+
+      const moveButton = (btn) => {
+        const maxOffset = 100;
+        const rect = btn.getBoundingClientRect();
+
+        const maxX = window.innerWidth - rect.width;
+        const maxY = window.innerHeight - rect.height;
+
+        const newX = Math.min(getRandomOffset(maxOffset), maxX - rect.left);
+        const newY = Math.min(getRandomOffset(maxOffset), maxY - rect.top);
+
+        btn.style.transform = `translate(${newX}px, ${newY}px)`;
+      };
+
+      btnNo.addEventListener("mouseover", () => {
+        if (contador < 20) {
+          moveButton(btnNo);
+          contador++;
+        }
+      });
+
+      btnNo.addEventListener("click", () => {
+        if (contador < 12) {
+          moveButton(btnNo);
+          contador++;
+        } else {
+          contador = 0;
+          title.textContent = "Esta bien...";
+          img.src = imagenTroste;
+          btnContainer.classList.add("hidden");
+          setTimeout(() => {
+            title.textContent = "Bromitaa";
+            img.src = imagenBromita;
+            setTimeout(() => {
+              title.textContent = "¿Me amas mi amor?";
+              img.src = imagenPrincipio;
+              btnContainer.classList.remove("hidden");
+              btnNo.classList.add("hidden")
+              btnSi.classList.add("moveCenter")
+            }, 2000);
+          }, 2000);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Museo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="museo.css">
+</head>
+<body>
+    <header>
+        <div class="titulo-container">
+            <img src="img/icono-izquierdo.png" alt="Icono izquierdo" class="icono-titulo">
+            <h1>Nuestro Museo</h1>
+            <img src="img/icono-derecho.png" alt="Icono derecho" class="icono-titulo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nuestra-historia.html">Nuestra Historia</a></li>
+                <li><a href="recuerdos.html">Pregunta seria...</a></li>
+                <li><a href="museo.html">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="museo-main">
+        <div class="galeria">
+            <div class="galeria-grid">
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/1.jpeg" alt="Imagen 1" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item horizontal">
+                    <img src="img/museo/2.jpeg" alt="Imagen 2" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item vertical">
+                    <img src="img/museo/3.jpeg" alt="Imagen 3" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item vertical">
+                    <img src="img/museo/4.jpeg" alt="Imagen 4" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/5.jpeg" alt="Imagen 5" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/6.jpeg" alt="Imagen 6" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/7.jpeg" alt="Imagen 7" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/8.jpeg" alt="Imagen 8" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/9.jpeg" alt="Imagen 9" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/10.jpeg" alt="Imagen 10" onclick="openLightbox(this)">
+                </div>
+                <div class="galeria-item cuadrada">
+                    <img src="img/museo/11.jpeg" alt="Imagen 11" onclick="openLightbox(this)">
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    </main>
+
+    <footer>
+        <p>✿ Página dedicada a mi novia Estela ( ˘ ³˘)♥</p>
+    </footer>
+
+    <script>
+        function openLightbox(img) {
+            document.getElementById('lightbox').style.display = 'block';
+            document.getElementById('lightbox-img').src = img.src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
